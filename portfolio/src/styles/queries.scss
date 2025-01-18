@@ -1,0 +1,193 @@
+
+/*********************************************/
+/* BELOW 1000px (Smaller horizontal screens) */
+/*********************************************/
+
+@media (max-width: 62.5em) {
+    html {
+        font-size: 50%; /* = 8px */
+    }
+
+    main {
+        gap: 4rem;
+    }
+
+    .about {
+        margin-top: 0;
+        padding: 10rem 1rem;
+        .text {
+            font-size: 2.1rem;
+        }
+
+        .about-picture {
+            padding-left: 12rem;
+        }
+
+        .about-description {
+            padding-right: 12rem;
+        }
+    }
+
+    .fun {
+        .fun-list {
+            grid-template-columns: 1fr;
+        }
+        
+    }
+}
+
+/*********************************************/
+/****** BELOW 780px (Vertical tablets) *******/
+/*********************************************/
+
+@media (max-width: 49em) {
+    
+    .btn-mobile-nav {
+        display: block;
+        position: relative;
+        margin-right: 2rem;
+        z-index: 10;
+    }
+
+    .nav-ul {
+        background-color: rgba(255, 255, 255, 0.97);
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        padding-top: 10rem;
+
+        transform: translateX(100%);
+
+        display: flex;
+        flex-direction: column;
+        justify-content: top;
+        align-items: center;
+        gap: 4rem;
+
+        transition: all 0.5s ease-in;
+
+        opacity: 0;
+        pointer-events: none;
+        visibility: hidden;
+    }
+
+    .dark .nav-ul {
+        background-color: rgba(31, 29, 63, 0.97);
+    }
+
+    .nav-open {
+        .nav-ul {
+            opacity: 1;
+            pointer-events: auto;
+            visibility: visible;
+            z-index: 1;
+
+            transform: translateX(0);
+        }
+
+        .icon-mobile-nav[name="close-outline"] {
+            display: block;
+            z-index: 10;
+        }
+        
+        .icon-mobile-nav[name="menu-outline"] {
+            display: none;
+        }
+    }
+
+    .hero {
+        width: 100%;
+        .hello {
+            padding-left: 10rem;
+            width: 100vw;
+            font-size: 10rem;
+            
+        }
+    }
+
+    .about {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+
+        .about-picture img {
+            width: 80%;
+            height: 30rem;
+            object-position: 0 25%;
+        }
+
+        .about-description {
+            text-align: center;
+            padding-bottom: 4rem;
+        }
+    }
+
+    .gamedev {
+        .fun-list {
+            grid-template-columns: 1fr;
+        }
+    }
+}
+
+
+/*********************************************/
+/*** BELOW 640px (Smaller vertical tablets) **/
+/*********************************************/
+@media (max-width: 40em) {
+    .about {
+        flex-direction: column;
+    }
+
+    .hero {
+        .hello {
+            .intro {
+                font-size: 3.2rem;
+            }
+
+            .text {
+                padding-right: 14rem;
+            }
+        }
+    }
+
+    .about {
+        .about-description {
+            font-size: 1.2rem;
+        }
+    }
+
+    .banner-img {
+        width: 80%;
+    }
+}
+
+/*********************************************/
+/*********** BELOW 512px (Phones) ************/
+/*********************************************/
+@media (max-width: 32em) {
+    main {
+        flex-direction: column;
+    }
+
+    .page-title {
+        font-size: 3.2rem;
+    }
+
+    .hero {
+        .hello {
+            font-size: 7.2rem;
+        }
+    }
+}
+
+/*********************************************/
+/******** BELOW 400px (Small Phones) *********/
+/*********************************************/
+
+@media (max-width: 25em) {
+    .title a:link,
+    .title a:visited {
+        font-size: 3.6rem;
+    }
+}

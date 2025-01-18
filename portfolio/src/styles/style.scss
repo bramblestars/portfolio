@@ -1,0 +1,514 @@
+$background: linear-gradient(0deg, rgba(185, 178, 255, 0.534), rgba(182, 228, 255, 0.664)), linear-gradient(90deg, rgba(120, 217, 255, 0.753), rgba(154, 161, 255, 0.808));
+$backgroundColor:  linear-gradient(#ddedff 10%, #ddedff 90%, white 100%);
+$boxShadowColor: rgba(25, 81, 83, 0.3);
+$titleColor: #33477E;
+$contactBtnColor: rgb(242, 254, 255);
+$contentBoxColor: rgba(255, 255, 255, 0.5);
+$gameTitleColor: #261d75;
+$gameTitleColorHover: #5347be;
+$textColor: #1f1f2b;
+$secondaryColor: #245959;
+$lightColor: #deffff;
+$mediumColor: #557e7e;
+
+$backgroundNight: linear-gradient(0deg, rgba(42, 14, 51, 0.534), rgba(13, 10, 41, 0.664)), linear-gradient(90deg, rgba(15, 26, 49, 0.753), rgba(34, 25, 77, 0.808));
+$backgroundColorNight: linear-gradient(#1b1835 10%, #1b1835 90%, #27254d 100%);
+$backgroundColorNight2: #27254d;
+$boxShadowColorNight: rgba(0, 0, 0, 0.3);
+$contentBoxColorNight: rgb(19, 19, 31);
+$gameTitleColorNight: #8199da;
+$gameTitleColorHoverNight: #b2d0e2;
+$titleColorNight: #aebce2;
+$contactBtnColorNight: rgb(83, 68, 109);
+$textColorNight: #e1e7f3;
+$secondaryColorNight: #b8b0e4;
+$mediumColorNight: #d4cff0;
+
+@mixin box-shadow($x, $y, $blur, $spread, $c) {
+    -webkit-box-shadow: $x $y $blur $spread $c;
+    -moz-box-shadow: $x $y $blur $spread $c;
+    -ms-box-shadow: $x $y $blur $spread $c;
+    box-shadow: $x $y $blur $spread $c;
+}
+
+/****************************************/
+/*************** GENERAL ****************/
+/****************************************/
+
+/* Main box containing all content */
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Inter", sans-serif;
+}
+
+html {
+    /* 10px */
+    font-size: 62.5%; 
+}
+
+body {
+    background-image: $background;
+    background-repeat: no-repeat;
+    width: 100vw;
+    height: 104rem;
+    overflow-x: hidden;
+}
+
+
+/****************************************/
+/**************** HEADER ****************/
+/****************************************/
+
+header {
+    height: 8rem;
+    width: 100vw;
+    padding: 1.8rem 2rem 2rem 2rem;
+    display: flex;
+    align-items: center;
+    align-content: space-evenly;
+    gap: 4.8rem;
+}
+
+.sticky-header {
+    @include box-shadow(0, 2px, 6px, 2px, $boxShadowColor);
+}
+
+.skip-nav {
+    position: absolute;
+    opacity: 0;
+}
+
+.title {
+    padding-right: 3rem;
+    padding-left: 2rem;
+    letter-spacing: -1px;
+
+    a:link,
+    a:visited {
+        font-family: "Paytone One", sans-serif;
+        font-size: 4.6rem;
+        font-weight: 700;
+        text-decoration: none;
+        color: $titleColor;
+
+        transition: all 0.2s;
+    }
+
+    a:active,
+    a:hover {
+        color: $mediumColor;
+        text-decoration: underline;
+    }
+}
+
+.navigation {
+    margin-right: 4%;
+    margin-left: auto;
+    letter-spacing: 0.5;
+
+    a:link, 
+    a:visited {
+        font-size: 2.4rem;
+        text-decoration: none;
+        color: $secondaryColor;
+        padding-top: 0.6rem;
+
+        transition: all 0.5s;
+    }
+
+    a:hover,
+    a:active {
+        color: $mediumColor;
+        text-decoration: underline;
+    }
+
+    a:active {
+        font-size: 2.3rem;
+    }
+}
+
+.nav-ul{
+    list-style: none;
+    display: flex;
+    align-content: space-evenly;
+    gap: 3rem;
+    padding-top: 1rem;
+    letter-spacing: 1.5px;
+}
+
+
+/* Mobile navigation */
+
+.btn-mobile-nav {
+    border: none;
+    background: none;
+    cursor: pointer;
+    display: none;
+}
+
+.icon-mobile-nav {
+    height: 6rem;
+    width: 6rem;
+    color: $secondaryColor;
+}
+
+.icon-mobile-nav[name="close-outline"] {
+    display: none;
+}
+
+/****************************************/
+/*************** CONTACT ****************/
+/****************************************/
+
+.contact {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+
+    bottom: 3rem;
+    right: 3rem;
+
+    
+}
+
+.contact-btn {
+    width: 5.6rem;
+    height: 5.6rem;
+    background-color: $contactBtnColor;
+    border-radius: 50%;
+    border: none;
+
+    cursor: pointer;
+
+    @include box-shadow(3px, 3px, 3px, 1px, $boxShadowColor);
+
+    font-size: 3.2rem;
+    color: $titleColor;
+
+    transition: all 0.1s;
+
+    ion-icon {
+        pointer-events: none;
+    }
+}
+
+.contact-btn:hover {
+    color: $textColor;
+    background-color: $lightColor;
+}
+
+.contact-btn:active {
+    transform: translateY(2px);
+    @include box-shadow(1px, 1px, 1px, 1px, $boxShadowColor);
+}
+
+/****************************************/
+/***************** BODY *****************/
+/****************************************/
+
+
+/** Homepage **/
+main {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: start;
+    width: 100vw;
+}
+
+/** Hero **/
+
+.hero {
+    width: 100%;
+    height: 83rem;
+}
+
+.picture {
+    position: absolute;
+    z-index: -1;
+    opacity: 0.05;
+    top: 0;
+    width: 100vw;
+    height: 123rem;
+    overflow-y: hidden;
+
+
+    img {
+        width: 100%;
+        height: 103rem;
+        object-fit: cover;
+        object-position: 50% 75%;
+    }
+}
+
+.hello {
+    padding: 10rem 20rem;
+    font-size: 14rem;
+    font-weight: 700;
+    width: 100vw;
+    color: $textColor;
+}
+
+.waving {
+    display: inline-block;
+}
+
+.waving:hover {
+    animation-name: wave-animation;
+    animation-duration: 3.0s;
+    animation-iteration-count: infinite;
+    transform-origin: 70% 70%;
+    }
+    
+    @keyframes wave-animation {
+    0% {
+    transform: rotate( 0.0deg)
+    }
+    10% {
+    transform: rotate(14.0deg)
+    }
+    20% {
+    transform: rotate(-8.0deg)
+    }
+    30% {
+    transform: rotate(14.0deg)
+    }
+    40% {
+    transform: rotate(-4.0deg)
+    }
+    50% {
+    transform: rotate(10.0deg)
+    }
+    60% {
+    transform: rotate( 0.0deg)
+    }
+    100% {
+    transform: rotate( 0.0deg)
+    }
+}
+
+.intro {
+    width: 60vw;
+    padding: 3rem 0;
+    font-size: 4rem;
+    font-weight: 400;
+}
+
+.description {
+    margin: 4rem 12rem;
+
+    .big-text:not(:first-of-type) {
+        margin-top: 3rem;
+    }
+}
+
+/** About section **/
+.about {
+    margin-top: 9.2rem;
+    padding: 10rem 3rem;
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    grid-template-rows: 10rem 4fr;
+    
+    background: $backgroundColor;
+    
+    .page-title {
+        grid-column: -1/1;
+        margin-bottom: 0.8rem;
+    }
+
+    .about-picture {
+        padding: 0 0 0 20rem;
+
+        img {
+            width: 40rem;
+            height: 50rem;
+            object-fit: cover;
+        }
+
+    }
+
+    .about-description {
+        padding: 0 20rem 0 10rem;
+    }
+
+    .text {
+        font-size: 2.4rem;
+    }
+}
+
+
+
+
+/** Game Dev list **/
+.gamedev {
+    padding: 4rem 2rem;
+}
+
+.game-title {
+    a:link, 
+    a:visited {
+        color: $gameTitleColor;
+        font-size: 2.4rem;
+        font-family: 'Paytone One', sans-serif;
+        text-decoration: none;
+        
+        transition: all 0.2s;
+    }
+
+    a:hover,
+    a:active {
+        color: $gameTitleColorHover;
+    }
+}
+
+.game-description {
+    text-align: center;
+    max-width: 80%;
+}
+
+/** CV page **/
+
+.cv {
+    width: 100%;
+}
+
+.cv-pdf {
+    color: $secondaryColor;
+    font-size: 2.6rem;
+    font-weight: normal;
+    text-decoration: none;
+
+}
+
+.cv-pdf:hover {
+    color: $mediumColor;
+}
+
+.cv-download-icon {
+    width: 2.4rem;
+    height: 2.4rem;
+    transform: translateY(2px);
+    z-index: 1;
+}
+
+.cv-part {
+    border-top: 4px dotted rgb(227, 249, 255);
+    padding: 2rem;
+}
+
+.cv-part-title {
+    color: $titleColor;
+    font-size: 2rem;
+}
+
+.cv-text {
+    font-size: 1.6rem;
+    color: $textColor;
+    list-style: square;
+
+    li:first-of-type {
+        margin-top: 1rem;
+    }
+
+    li {
+        margin-top: 0.6rem;
+        margin-left: 2rem;
+    }
+
+}
+
+.cv-item {
+    margin-top: 2rem;
+    font-size: 1.6rem;
+    color: $secondaryColor;
+    font-style: italic;
+    font-weight: bold;
+}
+
+/****************************************/
+/**************** FOOTER ****************/
+/****************************************/
+
+
+
+/****************************************/
+/************* NIGHT THEME **************/
+/****************************************/
+
+.dark {
+    background-image: $backgroundNight;
+
+    .sticky-header {
+        @include box-shadow(0, 2px, 6px, 2px, $boxShadowColorNight);
+    }
+
+    .title {
+        a:link,
+        a:visited {
+            color: $titleColorNight;
+        }
+
+        a:active,
+        a:hover {
+            color: $mediumColorNight;
+        }
+    }
+
+    .navigation {
+        a:link,
+        a:visited {
+            color: $secondaryColorNight;
+        }
+
+        a:hover, 
+        a:active {
+            color: $mediumColorNight;
+        }
+    }
+
+    .icon-mobile-nav {
+        color: $secondaryColorNight;
+    }
+
+    .contact-btn {
+        background-color: $contactBtnColorNight;
+
+        @include box-shadow(3px, 3px, 3px, 1px, $boxShadowColorNight);
+    }
+
+    .hello {
+        color: $textColorNight;
+    }
+
+    .about {
+        background: $backgroundColorNight;
+    }
+
+    .picture {
+        opacity: 0.02;
+    }
+
+    .gamedev {
+        background-color: $backgroundColorNight2;
+    }
+
+    .game-title {
+        a:link,
+        a:visited {
+            color: $gameTitleColorNight;
+        }
+
+        a:hover,
+        a:active {
+            color: $gameTitleColorHoverNight;
+        }
+    }
+
+    .fun {
+        background-color: $backgroundColorNight2;
+    }
+}
